@@ -70,11 +70,9 @@ app.get("/articles", function (req, res) {
 
     db.Article.find({})
         .then(function (dbArticle) {
-
             res.json(dbArticle);
         })
         .catch(function (err) {
-
             res.json(err);
         });
 });
@@ -86,11 +84,9 @@ app.get("/articles/:id", function (req, res) {
 
         .populate("note")
         .then(function (dbArticle) {
-
             res.json(dbArticle);
         })
         .catch(function (err) {
-
             res.json(err);
         });
 });
@@ -104,11 +100,9 @@ app.post("/articles/:id", function (req, res) {
             return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
         })
         .then(function (dbArticle) {
-
             res.json(dbArticle);
         })
         .catch(function (err) {
-
             res.json(err);
         });
 });
